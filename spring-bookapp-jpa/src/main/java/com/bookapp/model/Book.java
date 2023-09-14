@@ -5,9 +5,20 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 //@Table(name = "tablename")
 @Entity//the class will be converted into table 
+@NoArgsConstructor
+@Data
+//@Getter
+//@Setter
+//@ToString
 public class Book {
 	private String title;
 	private String author;
@@ -17,23 +28,6 @@ public class Book {
 	@Column(name="price")
 	private double price;
 	private String category;
-
-	public String getTitle() {
-		return title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
-	public Book() {
-		super();
-	}
-
-	public String getAuthor() {
-		return author;
-	}
-
 	public Book(String title, String author, double price, String category) {
 		super();
 		this.title = title;
@@ -41,39 +35,7 @@ public class Book {
 		this.price = price;
 		this.category = category;
 	}
-
-	public void setAuthor(String author) {
-		this.author = author;
-	}
-
-	public Integer getBookId() {
-		return bookId;
-	}
-
-	public void setBookId(Integer bookId) {
-		this.bookId = bookId;
-	}
-
-	public double getPrice() {
-		return price;
-	}
-
-	public void setPrice(double price) {
-		this.price = price;
-	}
-
-	public String getCategory() {
-		return category;
-	}
-
-	public void setCategory(String category) {
-		this.category = category;
-	}
-
-	@Override
-	public String toString() {
-		return "Book [title=" + title + ", author=" + author + ", bookId=" + bookId + ", price=" + price + ", category="
-				+ category + "]";
-	}
+	
+	
 
 }

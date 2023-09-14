@@ -38,6 +38,10 @@ public class SpringBookappJpaApplication implements CommandLineRunner{
            iBookService.updateBook(newBookDto);
            
            iBookService.getByAuthor("Jhon").forEach(System.out::println);
+           
+           iBookService.getByAuthPrice("Jhon", 200);
+           
+           iBookService.getByAuthAndPrice("Jhon", 200);
 	}
 
 }

@@ -8,14 +8,13 @@ import org.springframework.stereotype.Component;
 @Component
 public class InstrumentMain {
 	
-	@Autowired
-    private InstrumentFactory instrumentFactory;
+	
 	public static void main(String[] args) {
           AbstractApplicationContext context = new AnnotationConfigApplicationContext("com");
-          InstrumentMain instrumentMain = context.getBean(InstrumentMain.class);
-          instrumentMain.instrumentFactory.playSong("violin", "terimeri");
-          instrumentMain.instrumentFactory.playSong("guitar", "hello");
-          instrumentMain.instrumentFactory.playSong("keyboard", "goodbye");
+          Performer performer = (Performer)context.getBean("performer");
+          performer.playSong("violin", "terimeri");
+          performer.playSong("guitar", "hello");
+          performer.playSong("keyboard", "goodbye");
           context.close();
 	}
 }

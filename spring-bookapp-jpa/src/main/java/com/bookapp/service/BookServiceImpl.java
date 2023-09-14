@@ -71,5 +71,17 @@ public class BookServiceImpl implements IBookService {
 		return null;
 	}
 
+	@Override
+	public List<BookDto> getByAuthPrice(String author, double cost) {
+		List<BookDto> books = iBookRepository.findByAutPrice(author, cost).stream().map(book->bookMapper.convertToDto(book)).collect(Collectors.toList());
+		return books;
+	}
+
+	@Override
+	public List<BookDto> getByAuthAndPrice(String author, double cost) {
+		List<BookDto> books = iBookRepository.findByAuthAndPrice(author, cost).stream().map(book->bookMapper.convertToDto(book)).collect(Collectors.toList());
+		return books;
+	}
+
 	
 }

@@ -15,4 +15,9 @@ public interface IBookService {
 	List<BookDto> getByAuthor(String author) throws BookNotFoundException;
 	Book BookDto(int bookid) throws BookNotFoundException;
 	List<BookDto> getByCategory(String category) throws BookNotFoundException;
+	
+	
+	//custome queries
+	List<BookDto> getByAuthPrice(String author, double cost);
+	List<BookDto> getByAuthAndPrice(String author, double cost);
 }

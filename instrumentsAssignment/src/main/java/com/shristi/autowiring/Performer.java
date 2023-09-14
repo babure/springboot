@@ -5,26 +5,30 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
-public class InstrumentFactory {
+public class Performer {
 	@Autowired
 	@Qualifier("guitar")
-	private IInstrument guitar;
+	private IInstrument inst;
 	
 	@Autowired
-	@Qualifier("keyboard")
 	private IInstrument keyboard;
 	
-	@Autowired
-	@Qualifier("violin")
 	private IInstrument violin;
+
 	
+	public Performer(IInstrument violin) {
+		super();
+		this.violin = violin;
+	}
+
+
 	public void playSong(String instrument, String song) {
 		switch (instrument) {
 		case "violin":
 			violin.play(song);			
 			break;
 		case "guitar":
-			guitar.play(song);
+            inst.play(song);
 			break;
 	    case "keyboard":
 	    	keyboard.play(song);
